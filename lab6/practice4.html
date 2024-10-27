@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generate a Multiplication Table</h2>
+
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number" name="number" min="1" value="<?php echo $defaultNum; ?>">
+    <button onclick="generateTable()">Generate Table</button>
+
+    <h3>Multiplication Table</h3>
+    <div id="tableContainer"></div>
+
+    <script>
+        // Function to generate the multiplication table based on input
+        function generateTable() {
+            const num = document.getElementById("number").value || defaultNum;
+            const tableContainer = document.getElementById("tableContainer");
+            let tableHTML = "<table><tr><th>*</th>";
+
+            // Create header row
+            for (let i = 1; i <= num; i++) {
+                tableHTML += `<th>${i}</th>`;
+            }
+            tableHTML += "</tr>";
+
+            // Create multiplication rows
+            for (let i = 1; i <= num; i++) {
+                tableHTML += `<tr><th>${i}</th>`;
+                for (let j = 1; j <= num; j++) {
+                    tableHTML += `<td>${i * j}</td>`;
+                }
+                tableHTML += "</tr>";
+            }
+            tableHTML += "</table>";
+
+            // Display the generated table
+            tableContainer.innerHTML = tableHTML;
+        }
+
+        // Generate the table on page load with the default PHP value
+        window.onload = generateTable;
+    </script>
+</body>
+</html>

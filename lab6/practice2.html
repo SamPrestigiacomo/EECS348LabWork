@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Font Control</title>
+
+    <style>
+        body {
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container_holder {
+            width: 60%;
+            text-align: center;
+        }
+        #text_paragraph {
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .controls input {
+            margin: 0 5px;
+            padding: 5px;
+            width: 50px;
+        }
+        .controls label {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container_holder">
+            <h1>Basic News Title</h1>
+            <h4>Author: Jane Doe</h4>
+            <p id="text_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta expedita dolor quo quidem corrupti eum aspernatur quas tempora alias minus cum unde aliquid cumque voluptatibus, incidunt blanditiis eius tenetur voluptate.
+            Voluptate magni molestiae quos dignissimos porro voluptates quod voluptatibus harum possimus praesentium ab est fugiat fugit labore, rem suscipit vitae, eligendi nesciunt animi quibusdam et, repellendus necessitatibus eaque odit. Fugiat.
+            Dignissimos cumque delectus deserunt, ipsam perspiciatis vitae quia vel libero, minus quasi rem at eum quam recusandae corporis sapiente, similique consequuntur aliquam! Consequuntur in magni beatae voluptate consequatur molestiae exercitationem.</p>
+        
+            <div class="controls">
+                <label for="red">R:</label>
+                <input type="number", id="red" min="0" max="255" placeholder="Red">
+
+                <label for="green">G:</label>
+                <input type="number" id="green" min="0" max="255" placeholder="Green">
+
+                <label for="blue">B:</label>
+                <input type="number" id="blue" min="0" max="255" placeholder="Blue">
+
+                <label for="border_width">Border Width:</label>
+                <input type="number" id="border_width" min="1" max="10" placeholder="Width (px)">
+
+                <button onclick="applyStyles()">Apply Styles</button>
+            </div>
+        
+        </div>
+    </div>
+</body>
+
+    <script>
+        function applyStyles() {
+            const r = document.getElementById('red').value || 0;
+            const g = document.getElementById('green').value || 0;
+            const b = document.getElementById('blue').value || 0;
+            const borderWidth = document.getElementById("border_width").value || 1;
+
+            const paragraph = document.getElementById("text_paragraph");
+            paragraph.style.color = `rgb(${r}, ${g}, ${b})`;
+            paragraph.style.borderBlockColor = `rgb(${r}, ${g}, ${b})`;
+            paragraph.style.borderWidth = `${borderWidth}px`;
+        }
+    </script>
+
+</html>

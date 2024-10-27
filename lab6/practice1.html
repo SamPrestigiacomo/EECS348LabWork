@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EECS Profiles</title>
+
+    <style>
+        body {
+            padding: 0;
+            
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+        .top_line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+        }
+        .container-holder {
+            width: 75vw;
+            height: 60vh;
+            text-align: center;
+        }
+        #pfp {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s, border 0.3s ease-in-out;
+        }
+        #name {
+            transition: color 0.3s ease-in-out;
+        }
+        .timeline_link a {
+            transition: color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-holder">
+            <div class="top_line">
+                <img id="pfp" src="brushetta.jpg" alt="pfp">
+                <h1 id="name">Sam Prestigiacomo</h1>
+            </div>
+            <div class="contact">
+                <p class="email"></p>
+            </div>
+            
+            <div class="links">
+                <p class="timeline_link"><a href="https://timelinetl.com/">This</a> is the web-version of my project...</p>
+                <p class="video_link"><a href=""></a></p>
+                <video src="practice1Video.mp4" type="video/mp4" controls></video>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        const pfp = document.getElementById("pfp");
+        pfp.addEventListener("mouseover", () => {
+            pfp.style.transform = "scale(1.1)";
+            pfp.style.border = "3px solid #2c03fc";
+        });
+        pfp.addEventListener("mouseout", () => {
+            pfp.style.transform = "scale(1)";
+            pfp.style.border = "none";
+        });
+
+        const nameElement = document.getElementById("name");
+        nameElement.addEventListener('mouseover', () => {
+            nameElement.style.color = "#2c03fc";
+        });
+        nameElement.addEventListener("mouseout", () => {
+            nameElement.style.color = "black";
+        });
+
+        const timelineLink = document.querySelector(".timeline_link a");
+        timelineLink.addEventListener('mouseover', () => {
+            timelineLink.style.color = "#2c03fc";
+        });
+        timelineLink.addEventListener("mouseout", () => {
+            timelineLink.style.color = "black";
+        });
+    </script>
+</html>
